@@ -32,12 +32,12 @@ interface HomeProps{
 }
 
 export default function Home({latestEpisodes, allEpisodes}: HomeProps) {
-  const { playList } = usePlayer();
+  const { isExpanded, playList } = usePlayer();
 
   const episodeList = [...latestEpisodes, ...allEpisodes];
 
   return (
-    <div className={styles.homepage}>
+    <div className={`${styles.homepage} ${isExpanded ? styles.collapse :''}`}>
       <Head>
         <title>Home | Podcastr</title>
       </Head>
@@ -73,9 +73,9 @@ export default function Home({latestEpisodes, allEpisodes}: HomeProps) {
               <tr>
                 <th></th>
                 <th>Podcast</th>
-                <th>Integrantes</th>
+                <th className={styles.collapse1200}>Integrantes</th>
                 <th>Data</th>
-                <th>Duração</th>
+                <th className={styles.collapse580}>Duração</th>
                 <th></th>
               </tr>
             </thead>
@@ -92,9 +92,9 @@ export default function Home({latestEpisodes, allEpisodes}: HomeProps) {
                   <td>
                     <Link href={`episodes/${episode.id}`}><a>{episode.title}</a></Link>
                   </td>
-                  <td>{episode.members}</td>
+                  <td className={styles.collapse1200}>{episode.members}</td>
                   <td style={{width: 100}}>{episode.publishedAt}</td>
-                  <td>{episode.durationAsString}</td>
+                  <td className={styles.collapse580}>{episode.durationAsString}</td>
                   <td>
                     <button type="button" onClick={()=> playList(episodeList, index+2)}>
                       <img src="/play-green.svg" alt="Tocar episódio"/>

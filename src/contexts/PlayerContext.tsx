@@ -8,6 +8,7 @@ interface Episode{
   url: string;
 }
 interface PlayerContextData {
+  isExpanded: boolean;
   episodeList: Episode[];
   currentEpisodeIndex: number;
   isPlaying: boolean;
@@ -15,6 +16,7 @@ interface PlayerContextData {
   isShuffling: boolean;
   hasNext: boolean;
   hasPrevious: boolean;
+  setIsExpanded: (isExpanded: boolean) => void;
   play: (episode: Episode) => void;
   playList: (list: Episode[], index: number) => void;
   playNext: () => void;
@@ -31,6 +33,7 @@ interface PlayerContextProviderProps {
   children: ReactNode;
 }
 export function PlayerContextProvider({ children }: PlayerContextProviderProps){
+  const [isExpanded,setIsExpanded] = useState(false);
   const [episodeList,setEpisodeList] = useState([]);
   const [currentEpisodeIndex,setCurrentEpisodeIndex] = useState(0);
   const [isPlaying,setIsPlaying] = useState(false);
@@ -81,6 +84,7 @@ export function PlayerContextProvider({ children }: PlayerContextProviderProps){
 
   return (
     <PlayerContext.Provider value={{
+      isExpanded,
       episodeList: episodeList,
       currentEpisodeIndex: currentEpisodeIndex,
       isPlaying,
@@ -88,6 +92,7 @@ export function PlayerContextProvider({ children }: PlayerContextProviderProps){
       isShuffling,
       hasNext,
       hasPrevious,
+      setIsExpanded,
       play,
       playList,
       playNext,

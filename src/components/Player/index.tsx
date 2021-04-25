@@ -14,6 +14,7 @@ export function Player(){
   const [progress, setProgress] = useState(0);
 
   const { 
+    isExpanded,
     episodeList,
     currentEpisodeIndex,
     isPlaying,
@@ -21,6 +22,8 @@ export function Player(){
     isShuffling,
     hasNext,
     hasPrevious,
+
+    setIsExpanded,
     playNext,
     playPrevious,
     setPlayingState,
@@ -59,8 +62,11 @@ export function Player(){
     }
   }
 
-  return (
-    <div className={styles.playerContainer}>
+  return (    
+    <div className={`${styles.playerContainer} ${isExpanded ? styles.expanded: ''}`}>
+      <button type="button" className={styles.collapsePlayer} onClick={()=> setIsExpanded(false)}>
+        <img src="/close.svg"/>
+      </button>
       <header>
         <img src="/playing.svg" alt="Tocando agora"/>
         <div>

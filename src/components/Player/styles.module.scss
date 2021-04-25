@@ -11,6 +11,16 @@
   align-items: center;
   justify-content: space-between;
 
+  .collapsePlayer{
+    display: none;
+
+    position: absolute;
+    right: 1rem;
+    top: 1rem;
+    border: none;
+    background: transparent;
+    font-size: 0;
+  }
   header{
     display: flex;
     align-items: center;
@@ -130,6 +140,18 @@
       &:hover:not(:disabled){
         filter: brightness(0.95);
       }
+    }
+  }
+}
+@media (max-width: 980px){
+  .playerContainer:not(.expanded){
+    display: none;
+  }
+  .playerContainer.expanded{
+    width: 100vw;
+
+    .collapsePlayer{
+      display: block;
     }
   }
 }

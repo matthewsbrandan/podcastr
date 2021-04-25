@@ -24,18 +24,10 @@
 @media (max-width: 1080px){ html{ font-size: 93.75%; } } // 15px
 @media (max-width: 1080px){ html{ font-size: 87.5%; } } // 14px
 
-/* width */
-::-webkit-scrollbar {
-  width: 6px;
-}
-
-/* Track */
-::-webkit-scrollbar-track { background: var(--gray-50); }
-
-/* Handle */
-::-webkit-scrollbar-thumb { background: var(--purple-300); }
-/* Handle on hover */
-::-webkit-scrollbar-thumb:hover { background: var(--purple-800); }
+::-webkit-scrollbar { width: 6px; } /* width */
+::-webkit-scrollbar-track { background: var(--gray-50); } /* Track */
+::-webkit-scrollbar-thumb { background: var(--purple-300); } /* Handle */
+::-webkit-scrollbar-thumb:hover { background: var(--purple-800); } /* Handle on hover */
 
 body{
   background: var(--gray-50);   

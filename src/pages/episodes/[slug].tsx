@@ -28,10 +28,10 @@ interface EpisodeProps{
 }
 
 export default function Episode({ episode }: EpisodeProps){
-  const { play } = usePlayer();
+  const { isExpanded, play } = usePlayer();
 
   return (
-    <div className={styles.container}>
+    <div className={`${styles.container} ${isExpanded ? styles.collapse :''}`}>
       <Head>
         <title>{episode.title} | Podcastr</title>
       </Head>

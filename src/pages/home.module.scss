@@ -104,6 +104,18 @@
           }
         }
       }
+   
+    }
+    @media (max-width: 1700px){
+      ul{
+        grid-template-columns: repeat(1, 1fr);
+      }      
+    }
+    @media (max-width: 610px){
+      li {
+        flex-direction: column;
+        gap: .7rem;
+      }    
     }
   }
 
@@ -165,6 +177,30 @@
           }
         }
       }
+
+      @media (max-width: 1200px) and (min-width: 981px){
+        .collapse1200{
+          display: none;
+        }      
+      }
+      @media (max-width: 690px){
+        .collapse1200{
+          display: none;
+        }      
+      }
+      @media (max-width: 580px){
+        .collapse580{
+          display: none;
+        }      
+      }
     }
   }
+}
+@media(max-width: 530px){
+  .homepage{
+    height: inherit;
+  }
+}
+.collapse{
+  display: none;
 }
